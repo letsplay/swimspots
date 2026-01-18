@@ -2,7 +2,12 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0369a1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SwimSpot">
+  <meta name="description" content="Application communautaire pour nageurs en eau libre">
   <title>SwimSpot — Wireframe V5.0</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -58,6 +63,55 @@
       background: #000;
       border-radius: 20px;
       z-index: 1000;
+    }
+    
+    /* ============== MOBILE RESPONSIVE ============== */
+    @media screen and (max-width: 500px) {
+      body {
+        background: var(--white);
+        padding: 0;
+        align-items: stretch;
+      }
+      
+      .phone-frame {
+        max-width: 100%;
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
+        border-radius: 0;
+        box-shadow: none;
+      }
+      
+      .dynamic-island {
+        display: none;
+      }
+      
+      .header {
+        padding-top: env(safe-area-inset-top, 44px);
+      }
+      
+      .nav-bar {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+      }
+    }
+    
+    /* Standalone PWA mode (added to home screen) */
+    @media screen and (display-mode: standalone) {
+      body {
+        background: var(--white);
+        padding: 0;
+      }
+      
+      .phone-frame {
+        max-width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      
+      .dynamic-island {
+        display: none;
+      }
     }
     
     .screen { display: none; height: 100%; flex-direction: column; position: relative; background: var(--bg); }
